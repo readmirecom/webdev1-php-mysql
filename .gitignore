@@ -2,3 +2,4 @@
 */inc/config.php
 */uploads/*
 !*/uploads/.gitkeep
+*/inc/helper.php
