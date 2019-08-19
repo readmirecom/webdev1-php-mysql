@@ -6,8 +6,11 @@ $controllerPath = 'controllers/';
 /** Маршруты */
 $routes = [
     '/'            => 'DefaultController@index',
-    '/picture/add' => 'PictureController@add',
+    '/image/edit' => 'PictureController@index',
     '/note/edit'   => 'NoteController@index',
+    '/image/view' => 'PictureController@view',
+    '/note/view' => 'NoteController@view'
+    
 ];
 
 /** Обьединяем путь контроллеров с их названиями */

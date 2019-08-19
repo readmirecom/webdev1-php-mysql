@@ -17,3 +17,7 @@ function index() {
 
     return renderPage('template_add_edit_note');
 }
+
+function view(){
+    return renderPage('template_view_note');
+}

@@ -33,6 +33,22 @@ function registerCss($asset_name) {
     return "<link rel=\"stylesheet\" href=\"$asset\">";
 }
 
+/**Регистрируем img в шаблоне */
+function registerImg($asset_name){
+    $host = $_SERVER['SERVER_NAME'];
+    $asset = "//$host/$asset_name";
+
+    return $asset;
+}
+
+/**Регистрируем ссылки в шаблоне */
+function registerHref($asset_name){
+    $host = $_SERVER['SERVER_NAME'];
+    $asset = "//$host/$asset_name";
+
+    return $asset;
+}
+
 /** Дебагинг */
 function dd($var) {
     print "<pre>";
