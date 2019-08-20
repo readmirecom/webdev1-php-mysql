@@ -2,7 +2,6 @@
 
 function index() {
     global $db;
-
     if(!empty($_POST)) {
 
         $note_title = $_POST['note_title'];
