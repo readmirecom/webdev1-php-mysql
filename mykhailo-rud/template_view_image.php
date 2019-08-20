@@ -9,7 +9,7 @@
                 <figure class="works-item">
 
                     <!-- Show uploaded image -->
-                    <img src="uploads/Photo2.png" alt="[ENTRY TITLE]">
+                    <img src="<?= registerSrc('uploads/Photo.png'); ?>" alt="[ENTRY TITLE]">
 
                     <figcaption class="works-item_text">
 
@@ -46,9 +46,9 @@
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <p>Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones.</p>
                     <ul class="social-list">
-                        <li><a href="#nolink"><img src="img/twitter.png" alt="twitter"></a></li>
-                        <li><a href="#nolink"><img src="img/behance.png" alt="behance"></a></li>
-                        <li><a href="#nolink"><img src="img/instagram.png" alt="instagram"></a></li>
+                        <li><a href="#nolink"><img src="<?= registerSrc('img/twitter.png'); ?>" alt="twitter"></a></li>
+                        <li><a href="#nolink"><img src="<?= registerSrc('img/behance.png'); ?>" alt="behance"></a></li>
+                        <li><a href="#nolink"><img src="<?= registerSrc('img/instagram.png'); ?>" alt="instagram"></a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-9">
@@ -70,7 +70,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-2 text-right">
                                 <button type="submit">
-                                    <img src="img/Button.png" alt="submit">
+                                    <img src="<?= registerSrc('img/Button.png'); ?>" alt="submit">
                                 </button>
                             </div>
                         </div>

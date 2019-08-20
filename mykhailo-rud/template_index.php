@@ -1,52 +1,36 @@
+<?php 
+global $db;
 
+$images = $db->query("SELECT * FROM images")->fetchAll();
+$notes = $db->query("SELECT * FROM notes")->fetchAll();
+?>
 <section id="images" class="works">
     <div class="container">
         <h2>Images</h2>
         <div class="row">
 
             <!-- Image entry -->
+            <?php foreach ($images as $img){ ?>
             <div class="col-xs-12 col-sm-6">
                 <figure class="works-item">
 
                     <!-- Show uploaded image, [uploads/Photo.png] – image name from database -->
-                    <img src="uploads/Photo.png" alt="[ENTRY TITLE]">
+                    <img src="uploads/<?= $img['image_name']; ?>" alt="<?= $img['title']; ?>">
 
                     <figcaption class="works-item_text">
 
                         <!-- Show only if Featured checked -->
+                        <?php if($img['featured_image']==1) {?>
                         <span>Featured</span>
-
+                        <?php } ?>
                         <h3>
-                            <a href="#nolink">[ENTRY TITLE]</a>
+                            <a href="#nolink"><?= $img['title']; ?></a>
                         </h3>
                     </figcaption>
                 </figure>
             </div>
+            <?php }?>
             <!-- EO Image entry -->
-
-            <!-- Sample data -->
-            <div class="col-xs-12 col-sm-6">
-                <figure class="works-item">
-                    <img src="uploads/Photo3.png" alt="[ENTRY TITLE]">
-                    <figcaption class="works-item_text">
-                        <h3>
-                            <a href="#nolink">[ENTRY TITLE]</a>
-                        </h3>
-                    </figcaption>
-                </figure>
-            </div>
-
-            <div class="col-xs-12 col-sm-6">
-                <figure class="works-item">
-                    <img src="uploads/Photo2.png" alt="[ENTRY TITLE]">
-                    <figcaption class="works-item_text">
-                        <h3>
-                            <a href="#nolink">[ENTRY TITLE]</a>
-                        </h3>
-                    </figcaption>
-                </figure>
-            </div>
-            <!-- EO Sample data -->
         </div>
     </div>
 </section>
@@ -57,42 +41,18 @@
         <div class="row">
 
             <!-- Note entry -->
+            <?php foreach($notes as $note){ ?>
             <div class="col-xs-12 col-sm-6">
                 <div class="about-item">
-                    <h4><a href="#link-to-view-note">[ENTRY TITLE]</a></h4>
-                    <p>[Entry content with stripped HTML]</p>
+                    <h4><a href="#link-to-view-note"><?= $note['title'] ?></a></h4>
+                    <p><?= $note['content'] ?></p>
                 </div>
             </div>
+            <?php } ?>
             <!-- EO Note entry -->
 
 
-            <!-- Sample data -->
-            <div class="col-xs-12 col-sm-6">
-                <div class="about-item">
-                    <h4>Motion</h4>
-                    <p>As humans, we have progressed in so many ways, but we have lost touch with our bodies, nature, and the power of prayer.&nbsp;
-                        There seems to be a spiritual renaissance, of sorts, going on in the “new age” movement.
-                    </p>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <div class="about-item">
-                    <h4>Branding</h4>
-                    <p>If at anytime, you notice that a friend of yours is getting demotivated about life, try to inspire him/her as much as you can.&nbsp;
-                        Even if you are physically away from your friend you can send him inspirational ecards and tell him to download motivational screensavers and wallpapers.
-                        So motivate everyone who needs the boost.
-                    </p>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <div class="about-item">
-                    <h4>Development</h4>
-                    <p>Personally, the importance does not lie in what religion you are; however, a lack of religion does seem to run parallel with depression.&nbsp;
-                        This is classified as spiritual illness, which will have a negative effect on you mentally, physically, or totally.
-                    </p>
-                </div>
-            </div>
-            <!-- EO Sample data -->
+            
         </div>
         <div class="about-brands">
             <ul>

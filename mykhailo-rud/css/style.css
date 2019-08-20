@@ -326,6 +326,10 @@ button.burger:after {
 .about-item h4 {
     cursor: pointer;
 }
+.about-item h4 a {
+    color: inherit;
+}
+
 
 .about-brands ul {
     display: -webkit-box;

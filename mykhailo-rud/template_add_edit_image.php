@@ -8,7 +8,7 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="title">Image Title</label>
-                        <input type="text" name="image_title" class="form-control" id="title" placeholder="Enter title">
+                        <input type="text" required name="image_title" class="form-control" id="title" placeholder="Enter title">
                     </div>
 
                     <div class="checkbox">
@@ -22,13 +22,13 @@
 
                     <div class="form-group">
                         <label for="image">Image upload</label>
-                        <input type="file" name="image_file" class="form-control" id="image" placeholder="Select image">
+                        <input type="file" required name="image_file" class="form-control" id="image" placeholder="Select image">
                     </div>
 
                     <!-- Show uploaded image on edit page only -->
                     <div class="form-group">
                         <div><label>Current image</label></div>
-                        <img src="<?= registerImg('uploads/Photo2.png'); ?>" alt="[ENTRY TITLE]">
+                        <img src="<?= registerSrc('uploads/Photo2.png'); ?>" alt="[ENTRY TITLE]">
                     </div>
                     <!-- EO Show uploaded image-->
 

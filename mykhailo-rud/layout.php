@@ -8,19 +8,22 @@
     <title>Denis Abdullin</title>
 
     <!-- Latest compiled and minified CSS -->
-    <?= registerCss('css/bootstrap.min.css') ?>
-    <?= registerCss('css/bootstrap-theme.min.css') ?>
+    <link href="<?= registerSrc('css/bootstrap.min.css') ?>" rel="stylesheet"> 
+    <link href="<?= registerSrc('css/bootstrap-theme.min.css') ?>" rel="stylesheet">   
+    
+    
 
     <!-- jQuery -->
-    <?= registerJs('js/jquery-3.4.1.min.js') ?>
-    <?= registerJs('js/test.js') ?>
+    <script src=" <?= registerSrc('js/jquery-3.4.1.min.js') ?>"></script>
+    <script src=" <?= registerSrc('js/test.js') ?>"></script>
+    
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Nunito:600,700,800" rel="stylesheet">
-
-    <?= registerCss('css/style.css') ?>
+    <link href="<?= registerSrc('css/style.css') ?>" rel="stylesheet">  
+    
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,8 +56,8 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<?= registerHref('image/edit'); ?>">Add image</a></li>
-                    <li><a href="<?= registerHref('note/edit'); ?>">Add note</a></li>
+                    <li><a href="<?= registerSrc('image/edit'); ?>">Add image</a></li>
+                    <li><a href="<?= registerSrc('note/edit'); ?>">Add note</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
             <!-- /.container-fluid -->
@@ -63,7 +66,7 @@
 
         <div id="top-logo">
             <a href="/" class="header-logo">
-                <img src="<?= registerImg('img/Avatar.png'); ?>" alt="Denis Abdullin">
+                <img src="<?= registerSrc('img/Avatar.png'); ?>" alt="Denis Abdullin">
             </a>
         </div>
     </div>
@@ -73,9 +76,9 @@
     <div class="container">
         <h1>Motivation Is The First<br>Step To <span>Success</span></h1>
         <ul class="social-list">
-            <li><a data-checknum="15" href="https://www.facebook.com/readmirecom/"><img src="<?= registerImg('img/twitter.png'); ?>" alt="twitter"></a></li>
-            <li><a data-checknum="0" href="https://readmire.com/"><img src="<?= registerImg('img/behance.png'); ?>" alt="behance"></a></li>
-            <li><a data-checknum="42" href="https://www.instagram.com/readmirecom/"><img src="<?= registerImg('img/instagram.png'); ?>" alt="instagram"></a></li>
+            <li><a data-checknum="15" href="https://www.facebook.com/readmirecom/"><img src="<?= registerSrc('img/twitter.png'); ?>" alt="twitter"></a></li>
+            <li><a data-checknum="0" href="https://readmire.com/"><img src="<?= registerSrc('img/behance.png'); ?>" alt="behance"></a></li>
+            <li><a data-checknum="42" href="https://www.instagram.com/readmirecom/"><img src="<?= registerSrc('img/instagram.png'); ?>" alt="instagram"></a></li>
         </ul>
     </div>
 </section>
