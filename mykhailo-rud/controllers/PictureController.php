@@ -3,6 +3,8 @@
 function index() {
     global $db;
     if(!empty($_POST)) {
+        
+        $directory ='uploads/';
         $image_title = $_POST['image_title'];
         $image_file  = $_FILES['image_file']['name'];
         if(!empty($_POST['image_featured'])){

@@ -12,7 +12,7 @@ $notes = $db->query("SELECT * FROM notes")->fetchAll();
             <!-- Image entry -->
             <?php foreach ($images as $img){ ?>
             <div class="col-xs-12 col-sm-6">
-                <figure class="works-item">
+                <figure class="works-item" id="img<?= $img['id']; ?>">
 
                     <!-- Show uploaded image, [uploads/Photo.png] – image name from database -->
                     <img src="uploads/<?= $img['image_name']; ?>" alt="<?= $img['title']; ?>">
@@ -24,7 +24,7 @@ $notes = $db->query("SELECT * FROM notes")->fetchAll();
                         <span>Featured</span>
                         <?php } ?>
                         <h3>
-                            <a href="#nolink"><?= $img['title']; ?></a>
+                            <a href="<?= registerSrc('image/view'); ?>"><?=$img['title']; ?></a>
                         </h3>
                     </figcaption>
                 </figure>
@@ -43,9 +43,9 @@ $notes = $db->query("SELECT * FROM notes")->fetchAll();
             <!-- Note entry -->
             <?php foreach($notes as $note){ ?>
             <div class="col-xs-12 col-sm-6">
-                <div class="about-item">
+                <div class="about-item" id="note<?= $note['id']; ?>">
                     <h4><a href="#link-to-view-note"><?= $note['title'] ?></a></h4>
-                    <p><?= $note['content'] ?></p>
+                    <p><?= strip_tags($note['content']);  ?></p>
                 </div>
             </div>
             <?php } ?>
