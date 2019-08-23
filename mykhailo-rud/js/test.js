@@ -8,3 +8,8 @@ function readURL(input) {
       reader.readAsDataURL(input.files[0]);
     }
   }
+
+function idImage(elem){
+  let id = elem.getAttribute('id');
+  let phpID = `<?php $id = ${id}; ?>`;
+}

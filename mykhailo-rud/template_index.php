@@ -24,7 +24,7 @@ $notes = $db->query("SELECT * FROM notes")->fetchAll();
                         <span>Featured</span>
                         <?php } ?>
                         <h3>
-                            <a href="<?= registerSrc('image/view'); ?>"><?=$img['title']; ?></a>
+                            <a href="<?= registerSrc('image/view'); ?>" onclick="idImage(this);"><?=$img['title']; ?></a>
                         </h3>
                     </figcaption>
                 </figure>

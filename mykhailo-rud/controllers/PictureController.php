@@ -5,9 +5,18 @@ function index() {
     if(!empty($_POST)) {
         if(isset($_FILES['image_file'])){
             $directory = 'uploads/';
+            $nameError = 0;
             $image_title = $_POST['image_title'];
             $image_file  = $_FILES['image_file']['name'];
             $image_tmp = $_FILES['image_file']['tmp_name'];
+            $listFiles = scandir($directory);
+            foreach ($listFiles as $file){
+                if($image_file == $file){
+                    $name = explode(".", $image_file);
+                    $name[0] = $name[0] . uniqid();
+                    $image_file = implode('.', $name);
+                }
+            }
             $target_image = $directory . basename($image_file);
             move_uploaded_file($image_tmp, $target_image );
             if(!empty($_POST['image_featured'])){
@@ -27,6 +36,7 @@ function index() {
 }
 
 function view() {
-    return renderPage('template_view_image');
+    $id =53;
+    return renderPage('template_view_image',['id' => $id]);
 }
 

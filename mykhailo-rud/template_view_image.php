@@ -1,4 +1,17 @@
-
+<?php
+    global $db;
+    $images = $db->query("SELECT * FROM images")->fetchAll();
+    $image_name = '';
+    $image_title = '';
+    $image_featured = 0;
+    foreach($images as $img){
+        if($img['id']==$value){
+            $image_name = $img['image_name'];
+            $image_title = $img['title'];
+            $image_featured = $img['featured_image'];
+        }
+    }
+?>
 <section id="images" class="works">
     <div class="container">
         <h2>Images</h2>
@@ -9,15 +22,18 @@
                 <figure class="works-item">
 
                     <!-- Show uploaded image -->
-                    <img src="<?= registerSrc('uploads/Photo.png'); ?>" alt="[ENTRY TITLE]">
+                    <img src="<?= registerSrc('uploads/' . $image_name); ?>" alt="[ENTRY TITLE]">
 
                     <figcaption class="works-item_text">
 
                         <!-- Show only if Featured checked -->
-                        <span>Featured</span>
+                       <?php if($image_featured == 1){ ?>
+                            <span>Featured</span>
+                        <?php } ?>
+                        
 
                         <h3>
-                            <a href="#nolink">[ENTRY TITLE]</a>
+                            <a href="#nolink"><?= $image_title; ?></a>
                         </h3>
                     </figcaption>
                 </figure>
