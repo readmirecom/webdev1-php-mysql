@@ -1,4 +1,3 @@
-
 <form action="" enctype="multipart/form-data" method="post">
     <section id="images" class="works">
         <div class="container">
@@ -22,13 +21,13 @@
 
                     <div class="form-group">
                         <label for="image">Image upload</label>
-                        <input type="file" required name="image_file" class="form-control" id="image" placeholder="Select image">
+                        <input type="file" onchange="readURL(this);" required name="image_file" class="form-control" id="image" placeholder="Select image">
                     </div>
 
                     <!-- Show uploaded image on edit page only -->
                     <div class="form-group">
                         <div><label>Current image</label></div>
-                        <img src="<?= registerSrc('uploads/Photo2.png'); ?>" alt="[ENTRY TITLE]">
+                        <img id="current_img" src="<?= registerSrc('uploads/Photo2.png'); ?>" alt="[ENTRY TITLE]">
                     </div>
                     <!-- EO Show uploaded image-->
 
