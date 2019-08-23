@@ -4,11 +4,12 @@ function index() {
     global $db;
     if(!empty($_POST)) {
         if(isset($_FILES['image_file'])){
-            $directory = registerSrc('uploads/');
+            $directory = 'uploads/';
             $image_title = $_POST['image_title'];
             $image_file  = $_FILES['image_file']['name'];
             $image_tmp = $_FILES['image_file']['tmp_name'];
-            move_uploaded_file($image_tmp, $directory.$image_file );
+            $target_image = $directory . basename($image_file);
+            move_uploaded_file($image_tmp, $target_image );
             if(!empty($_POST['image_featured'])){
                 $featured_image = 1;
             }else{
