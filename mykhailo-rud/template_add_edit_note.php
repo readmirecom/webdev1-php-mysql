@@ -9,12 +9,13 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="title">Note Title</label>
-                        <input type="text" name="note_title" required class="form-control" id="title" placeholder="Enter title">
+                        <input type="text" name="note_title" required class="form-control" id="title" placeholder="Enter title" 
+                        value="<?= isset($note) ? $note['title'] : null ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="content">Note text</label>
-                        <textarea name="note_text" class="form-control" required id="content" rows="5" placeholder="Entry content"></textarea>
+                        <textarea name="note_text" class="form-control" required id="content" rows="5" placeholder="Entry content"><?= isset($note) ? $note['content'] : null ?></textarea>
                     </div>
 
                     <div>

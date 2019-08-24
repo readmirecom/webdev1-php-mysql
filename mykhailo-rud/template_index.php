@@ -1,9 +1,3 @@
-<?php 
-global $db;
-
-$images = $db->query("SELECT * FROM images")->fetchAll();
-$notes = $db->query("SELECT * FROM notes")->fetchAll();
-?>
 <section id="images" class="works">
     <div class="container">
         <h2>Images</h2>
@@ -24,7 +18,7 @@ $notes = $db->query("SELECT * FROM notes")->fetchAll();
                         <span>Featured</span>
                         <?php } ?>
                         <h3>
-                            <a href="<?= registerSrc('image/view'); ?>" onclick="idImage(this);"><?=$img['title']; ?></a>
+                            <a href="<?= registerSrc('image/view', ['id' => $img['id']]); ?>" onclick="idImage(this);"><?=$img['title']; ?></a>
                         </h3>
                     </figcaption>
                 </figure>
@@ -44,7 +38,7 @@ $notes = $db->query("SELECT * FROM notes")->fetchAll();
             <?php foreach($notes as $note){ ?>
             <div class="col-xs-12 col-sm-6">
                 <div class="about-item" id="note<?= $note['id']; ?>">
-                    <h4><a href="#link-to-view-note"><?= $note['title'] ?></a></h4>
+                    <h4><a href="<?= registerSrc('note/view', ['id' => $note['id']]) ?>"><?= $note['title'] ?></a></h4>
                     <p><?= strip_tags($note['content']);  ?></p>
                 </div>
             </div>

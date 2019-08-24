@@ -1,4 +1,3 @@
-
 <section id="note" class="about">
     <div class="container">
         <h2>Notes</h2>
@@ -7,13 +6,15 @@
             <!-- Note entry -->
             <div class="col-xs-12">
                 <div class="about-item">
-                    <h4>[ENTRY TITLE]</h4>
-                    <p>[Entry content with stripped HTML]</p>
+                    <h4><?= strip_tags($note['title']) ?></h4>
+                    <p><?= strip_tags($note['content']) ?></p>
                 </div>
 
                 <div>
-                    <a class="btn btn-info" href="#edit_link">Edit note</a>
-                    <a class="btn btn-danger" href="#delete_link">Delete note</a>
+                    <a class="btn btn-info" href="<?= registerSrc('note/edit', ['id' => $note['id']])?>">Edit note</a>
+                    
+                    <a class="btn btn-danger js-delete-button" href="javascript:void(0);" data-delete-href="<?= registerSrc('note/delete') ?>" data-id="<?= $note['id'] ?>">Delete note</a>
+                    
                 </div>
             </div>
         </div>

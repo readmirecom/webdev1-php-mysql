@@ -7,12 +7,13 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="title">Image Title</label>
-                        <input type="text" required name="image_title" class="form-control" id="title" placeholder="Enter title">
+                        <input type="text" required name="image_title" class="form-control" id="title" placeholder="Enter title"
+                        value="<?= isset($image) ? $image['title'] : null?>">
                     </div>
 
                     <div class="checkbox">
                         <label>
-                            <input name="image_featured" type="checkbox" value="1" id="featured">
+                            <input name="image_featured" type="checkbox" value="<?= isset($image) ? $image['featured_image']: null?>" id="featured">
                             Featured Image
                         </label>
                     </div>
@@ -21,13 +22,13 @@
 
                     <div class="form-group">
                         <label for="image">Image upload</label>
-                        <input type="file" onchange="readURL(this);" required name="image_file" class="form-control" id="image" placeholder="Select image">
+                        <input type="file" onchange="readURL(this);" <?= isset($image) && isset($image['image_name']) ? null : 'required' ?> name="image_file" class="form-control" id="image" placeholder="Select image">
                     </div>
 
                     <!-- Show uploaded image on edit page only -->
                     <div class="form-group">
                         <div><label>Current image</label></div>
-                        <img id="current_img" src="<?= registerSrc('uploads/Photo2.png'); ?>" alt="[ENTRY TITLE]">
+                        <img id="current_img" src="<?= isset($image) ? registerSrc('uploads/' . $image['image_name']) : null; ?>" alt="[ENTRY TITLE]">
                     </div>
                     <!-- EO Show uploaded image-->
 

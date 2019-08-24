@@ -1,17 +1,3 @@
-<?php
-    global $db;
-    $images = $db->query("SELECT * FROM images")->fetchAll();
-    $image_name = '';
-    $image_title = '';
-    $image_featured = 0;
-    foreach($images as $img){
-        if($img['id']==$value){
-            $image_name = $img['image_name'];
-            $image_title = $img['title'];
-            $image_featured = $img['featured_image'];
-        }
-    }
-?>
 <section id="images" class="works">
     <div class="container">
         <h2>Images</h2>
@@ -22,26 +8,27 @@
                 <figure class="works-item">
 
                     <!-- Show uploaded image -->
-                    <img src="<?= registerSrc('uploads/' . $image_name); ?>" alt="[ENTRY TITLE]">
+                    <img src="<?= registerSrc('uploads/' . $image['image_name']); ?>" alt="<?= $image['title'] ?>">
 
                     <figcaption class="works-item_text">
 
                         <!-- Show only if Featured checked -->
-                       <?php if($image_featured == 1){ ?>
+                       <?php if($image['featured_image'] == 1){ ?>
                             <span>Featured</span>
                         <?php } ?>
                         
 
                         <h3>
-                            <a href="#nolink"><?= $image_title; ?></a>
+                            <a href="#nolink"><?= $image['title']; ?></a>
                         </h3>
                     </figcaption>
                 </figure>
 
 
                 <div>
-                    <a class="btn btn-info" href="#edit_link">Edit image</a>
-                    <a class="btn btn-danger" href="#delete_link">Delete image</a>
+                    <a class="btn btn-info" href="<?= registerSrc('image/edit', ['id' => $image['id']])?>">Edit image</a>
+                    <a class="btn btn-danger js-delete-button" href="javascript:void(0);" 
+                    data-delete-href="<?= registerSrc('image/delete') ?>" data-id="<?= $image['id'] ?>">Delete image</a>
                 </div>
             </div>
             <!-- EO Image entry -->

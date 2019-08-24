@@ -9,7 +9,21 @@ function readURL(input) {
     }
   }
 
-function idImage(elem){
-  let id = elem.getAttribute('id');
-  let phpID = `<?php $id = ${id}; ?>`;
-}
+// Notes. Удаление
+$(document).ready(function () {
+  $(document).on("click", ".js-delete-button", function () {
+    let $item = $(this);
+    let url = $item.data('delete-href');
+    let itemId = $item.data('id');
+
+    let choose = confirm("Are you sure?");
+
+    if(!choose) {
+      return;
+    }
+
+    $.post(url, {id: itemId}).done(function () {
+      window.location.href = window.location.origin;
+    });
+  });
+});

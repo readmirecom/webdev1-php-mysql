@@ -9,10 +9,13 @@ require_once('inc/routes.php');
 require_once('functions.php');
 
 /** Получаем запрашиваемый путь */
-$path = $_SERVER['REQUEST_URI'];
+parse_str($_SERVER['REQUEST_URI'], $request);
+$path    = array_keys($request)[0];
+$params = $request[$path];
 
 /** Проверка существования запрошеного пути */
 if (array_key_exists($path, $routes)) {
+
     /** Разбиваем существующий путь */
     $path = explode('@', $routes[$path]);
 
@@ -25,7 +28,7 @@ if (array_key_exists($path, $routes)) {
         require_once("$controllerName.php");
 
         /** Вызываем соответствующую функцию */
-        call_user_func($functionName);
+        call_user_func($functionName, $params);
     }
 } else {
     /** В противном случае, бросаем ошибку 404 */

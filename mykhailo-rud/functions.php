@@ -18,9 +18,13 @@ function renderPage($template_name, $params = []) {
 
 
 /**Регистрируем ссылки в шаблоне */
-function registerSrc($asset_name){
+function registerSrc($asset_name, $params = []){
     $host = $_SERVER['SERVER_NAME'];
     $asset = "//$host/$asset_name";
+
+    if(!empty($params)) {
+        $asset .= '?' . http_build_query($params);
+    }
 
     return $asset;
 }
@@ -30,4 +34,12 @@ function dd($var) {
     print "<pre>";
     print_r($var);
     die;
+}
+
+function isPost() {
+    return $_SERVER['REQUEST_METHOD'] === 'POST';
+}
+
+function isGet() {
+    return $_SERVER['REQUEST_METHOD'] === 'GET';
 }
