@@ -9,7 +9,7 @@ function readURL(input) {
     }
   }
 
-// Notes. Удаление
+// Удаление
 $(document).ready(function () {
   $(document).on("click", ".js-delete-button", function () {
     let $item = $(this);

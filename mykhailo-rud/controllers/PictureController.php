@@ -6,20 +6,12 @@ function index() {
     if(isPost()) {
         if(isset($_FILES['image_file'])){
             $directory = 'uploads/';
-            $nameError = 0;
-
             $image_title = $_POST['image_title'];
             $image_file  = $_FILES['image_file']['name'];
             $image_tmp = $_FILES['image_file']['tmp_name'];
-            $listFiles = scandir($directory);
-
-            foreach ($listFiles as $file){
-                if($image_file == $file){
-                    $name = explode(".", $image_file);
-                    $name[0] = $name[0] . uniqid();
-                    $image_file = implode('.', $name);
-                }
-            }
+            $name = explode(".", $image_file);
+            $name[0] = $name[0] . uniqid();
+            $image_file = implode('.', $name);
 
             $target_image = $directory . basename($image_file);
             move_uploaded_file($image_tmp, $target_image );
@@ -64,10 +56,21 @@ function edit($id) {
 
     if(isPost()) {
         $query = $db->prepare("UPDATE images SET title=:title, featured_image=:featured, image_name=:img WHERE id=:id");
-
-        if(!is_null($_FILES['image_file']['name'])) {
-            $image_name = $_FILES['image_file']['name'];
-
+        if(!empty($_POST['image_featured'])){
+            $featured_image = 1;
+        }else{
+            $featured_image = 0;
+        }
+        if($_FILES['image_file']['name'] !== '' ) {
+            
+            $directory = 'uploads/';
+            $image_file  = $_FILES['image_file']['name'];
+            $image_tmp = $_FILES['image_file']['tmp_name'];
+            $name = explode(".", $image_file);
+            $name[0] = $name[0] . uniqid();
+            $image_file = implode('.', $name);
+            $target_image = $directory . basename($image_file);
+            move_uploaded_file($image_tmp, $target_image );
             $pathToFile = __DIR__ . '/../uploads/' . $image['image_name'];
 
             if(file_exists($pathToFile)) {
@@ -76,12 +79,12 @@ function edit($id) {
 
             //TODO:: Загрузити нову фотку в папку
         } else {
-            $image_name = $image['image_name'];
+            $image_file = $image['image_name'];
         }
-
+        
         $query->bindParam('title', $_POST['image_title']);
-        $query->bindParam('featured', $_POST['image_featured']);
-        $query->bindParam('img', $image_name);
+        $query->bindParam('featured', $featured_image);
+        $query->bindParam('img', $image_file);
         $query->bindParam('id', $id);
 
         $query->execute();

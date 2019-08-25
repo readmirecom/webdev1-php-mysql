@@ -56,8 +56,8 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<?= registerSrc('image/edit'); ?>">Add image</a></li>
-                    <li><a href="<?= registerSrc('note/edit'); ?>">Add note</a></li>
+                    <li><a href="<?= registerSrc('image/add'); ?>">Add image</a></li>
+                    <li><a href="<?= registerSrc('note/add'); ?>">Add note</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
             <!-- /.container-fluid -->

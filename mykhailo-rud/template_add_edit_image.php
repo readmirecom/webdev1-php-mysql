@@ -13,7 +13,7 @@
 
                     <div class="checkbox">
                         <label>
-                            <input name="image_featured" type="checkbox" value="<?= isset($image) ? $image['featured_image']: null?>" id="featured">
+                            <input name="image_featured" type="checkbox" <?= isset($image) && $image['featured_image'] == 1 ? 'checked' : null  ?> id="featured">
                             Featured Image
                         </label>
                     </div>
@@ -28,7 +28,7 @@
                     <!-- Show uploaded image on edit page only -->
                     <div class="form-group">
                         <div><label>Current image</label></div>
-                        <img id="current_img" src="<?= isset($image) ? registerSrc('uploads/' . $image['image_name']) : null; ?>" alt="[ENTRY TITLE]">
+                        <img id="current_img" src="<?= isset($image) ? registerSrc('uploads/' . $image['image_name']) : null; ?>" alt="<?= isset($image) ? $image['title'] : null ?>">
                     </div>
                     <!-- EO Show uploaded image-->
 
